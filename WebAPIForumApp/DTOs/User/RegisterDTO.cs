@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebAPIForumApp.Models
+namespace WebAPIForumApp.DTOs.User
 {
     public class RegisterDTO
     {

@@ -10,10 +10,10 @@ namespace WebAPIForumApp.Models
 
         public int TopicId { get; set; }
         [ForeignKey("TopicId")]
-        public virtual Topic Topic { get; set; } = null!;
+        public virtual Topic Topic { get; set; } = default!;
         public int UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual User User { get; set; } = null!;
+        public virtual User User { get; set; } = default!;
 
 
         [DataType(DataType.Date)]

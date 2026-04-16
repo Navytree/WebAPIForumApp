@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAPIForumApp.Data;
 
@@ -11,9 +12,11 @@ using WebAPIForumApp.Data;
 namespace WebAPIForumApp.Migrations
 {
     [DbContext(typeof(WebAPIForumAppContext))]
-    partial class WebAPIForumAppContextModelSnapshot : ModelSnapshot
+    [Migration("20260416164340_changeToTopicAndPostModels")]
+    partial class changeToTopicAndPostModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -14,7 +14,7 @@ namespace WebAPIForumApp.Models
 
         public int UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual User? User { get; set; }
+        public virtual User User { get; set; } = default!;
 
         public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
     }
