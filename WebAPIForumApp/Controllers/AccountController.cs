@@ -38,11 +38,11 @@ public class AccountController : ControllerBase
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(User loginData)
+        public async Task<IActionResult> Login(LoginDTO dto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Login == loginData.Login);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Login == dto.Login);
 
-            if (user == null || !_passwordHasher.Verify(loginData.PasswordHash, user.PasswordHash))
+            if (user == null || !_passwordHasher.Verify(dto.Password, user.PasswordHash))
             { return Unauthorized("Invalid login or password."); }
 
             return Ok(new { Message = "Logged in successfully", UserId = user.Id });

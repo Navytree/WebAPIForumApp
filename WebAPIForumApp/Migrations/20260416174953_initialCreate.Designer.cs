@@ -12,8 +12,8 @@ using WebAPIForumApp.Data;
 namespace WebAPIForumApp.Migrations
 {
     [DbContext(typeof(WebAPIForumAppContext))]
-    [Migration("20260416164340_changeToTopicAndPostModels")]
-    partial class changeToTopicAndPostModels
+    [Migration("20260416174953_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,8 +103,8 @@ namespace WebAPIForumApp.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
