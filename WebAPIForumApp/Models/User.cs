@@ -7,12 +7,12 @@ namespace WebAPIForumApp.Models
     {
         public int Id { get; set; }
 
-        [StringLength(20, MinimumLength = 5)]
         [Required]
+        [StringLength(20, MinimumLength = 5)]
         public string Login { get; set; }
 
-        [StringLength(20, MinimumLength = 5)]
         [Required]
+        [MaxLength(255)]
         public string PasswordHash { get; set; }
 
         [EmailAddress]

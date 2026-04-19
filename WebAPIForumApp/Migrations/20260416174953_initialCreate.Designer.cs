@@ -12,15 +12,15 @@ using WebAPIForumApp.Data;
 namespace WebAPIForumApp.Migrations
 {
     [DbContext(typeof(WebAPIForumAppContext))]
-    [Migration("20260415220026_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260416174953_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -103,8 +103,8 @@ namespace WebAPIForumApp.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 

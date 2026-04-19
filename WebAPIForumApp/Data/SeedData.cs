@@ -18,17 +18,20 @@ namespace WebAPIForumApp.Data
                     new User
                     {
                         Login = "TestUser1",
-                        PasswordHash = hasher.Hash("Password123")
+                        PasswordHash = hasher.Hash("Password123"),
+                        Email = "Test@test.com"
                     },
                     new User
                     {
                         Login = "Qwerty",
-                        PasswordHash = hasher.Hash("qwerty")
+                        PasswordHash = hasher.Hash("qwerty"),
+                        Email = "Qwerty@gmail.com"
                     },
                     new User
                     {
                         Login = "Abcde",
-                        PasswordHash = hasher.Hash("qwerty")
+                        PasswordHash = hasher.Hash("qwerty"),
+                        Email = "A@B.cde"
                     });
                     await context.SaveChangesAsync();
                 }
@@ -74,21 +77,20 @@ namespace WebAPIForumApp.Data
                         },
                         new Topic
                         {
-                            Title = "Hello word",
+                            Title = "Hello world",
                             Description = "Nice song by Louie Zong! I also like his Ghost Choir series, how about you guys?",
                             CreatedAt = DateTime.Now,
                             UserId = testUser2.Id
                         });
                     await context.SaveChangesAsync();
                 }
-                var LoremIpsumTopic = await context.Topics.FirstAsync(t => t.Title == "Lorem Ipsum" && t.UserId == testUser1.Id);
-                var LikedSongTopic = await context.Topics.FirstAsync(t => t.Title == "Hello world" && t.UserId == testUser2.Id);
+                var LoremIpsumTopic = await context.Topics.FirstOrDefaultAsync(t => t.Title == "Lorem Ipsum" && t.UserId == testUser1.Id);
+                var LikedSongTopic = await context.Topics.FirstOrDefaultAsync(t => t.Title == "Hello world" && t.UserId == testUser2.Id);
                 // i'm aware that the user can have many topics with the same topic title,
                 // for example "Help! My code doesn't work!!!1!", but in this case i'll use it as my reference point
 
-                if (!context.Posts.Any())
+                if (LoremIpsumTopic != null && LikedSongTopic != null)
                 {
-
                     context.Posts.AddRange(
                         new Post
                         {

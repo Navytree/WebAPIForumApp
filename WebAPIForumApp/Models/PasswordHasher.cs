@@ -17,7 +17,7 @@ namespace WebAPIForumApp.Models
 
         public bool Verify(string password, string passwordHash)
         {
-            string[] parts = passwordHash.Split('.');
+            string[] parts = passwordHash.Split('-');
             byte[] hash = Convert.FromHexString(parts[0]);
             byte[] salt = Convert.FromHexString(parts[1]);
             byte[] inputHash = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, Algorithm, HashSize);
