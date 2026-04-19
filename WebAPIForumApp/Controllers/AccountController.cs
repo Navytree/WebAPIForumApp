@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebAPIForumApp.Data;
 using WebAPIForumApp.DTOs.User;
+using WebAPIForumApp.DTOs;
 using WebAPIForumApp.Models;
 
 [ApiController]
@@ -47,7 +48,5 @@ public class AccountController : ControllerBase
 
             return Ok(new { Message = "Logged in successfully", UserId = user.Id });
         }
-
-
 
 }

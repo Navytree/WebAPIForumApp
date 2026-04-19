@@ -1,4 +1,4 @@
-﻿namespace WebAPIForumApp.DTOs.Posts
+﻿namespace WebAPIForumApp.DTOs
 {
     public class CreatePostDTO
     {

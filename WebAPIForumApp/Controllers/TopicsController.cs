@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPIForumApp.Data;
-using WebAPIForumApp.DTOs.Topics;
-using WebAPIForumApp.DTOs.Posts;
+using WebAPIForumApp.DTOs;
 using WebAPIForumApp.Models;
 
 namespace WebAPIForumApp.Controllers

@@ -1,4 +1,4 @@
-﻿namespace WebAPIForumApp.DTOs.Topics
+﻿namespace WebAPIForumApp.DTOs
 {
     public class CreateTopicDTO
     {

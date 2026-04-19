@@ -7,8 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPIForumApp.Data;
-using WebAPIForumApp.DTOs.Posts;
-using WebAPIForumApp.DTOs.Topics;
+using WebAPIForumApp.DTOs;
 using WebAPIForumApp.Models;
 
 namespace WebAPIForumApp.Controllers
@@ -78,7 +77,12 @@ namespace WebAPIForumApp.Controllers
                 TopicId = dto.TopicId
             };
 
+            var topic = await _context.Topics.FindAsync(post.TopicId);
+            if (topic == null)
+            { return NotFound("Topic doesn't exists"); }
+
             _context.Posts.Add(post);
+            topic.IncrementReplies();
             await _context.SaveChangesAsync();
 
             await _context.Entry(post).Reference(t => t.User).LoadAsync();

@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebAPIForumApp.DTOs.Posts;
 
-namespace WebAPIForumApp.DTOs.Topics
+namespace WebAPIForumApp.DTOs
 {
     public class TopicDTO
     {

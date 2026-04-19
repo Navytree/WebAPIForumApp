@@ -17,5 +17,10 @@ namespace WebAPIForumApp.Models
         public virtual User User { get; set; } = default!;
 
         public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
+        public int RepliesCount { get; set; }
+        public void IncrementReplies()
+        {
+            RepliesCount++;
+        }
     }
 }
