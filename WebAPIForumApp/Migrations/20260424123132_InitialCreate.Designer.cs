@@ -12,8 +12,8 @@ using WebAPIForumApp.Data;
 namespace WebAPIForumApp.Migrations
 {
     [DbContext(typeof(WebAPIForumAppContext))]
-    [Migration("20260416174953_initialCreate")]
-    partial class initialCreate
+    [Migration("20260424123132_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,9 @@ namespace WebAPIForumApp.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RepliesCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()

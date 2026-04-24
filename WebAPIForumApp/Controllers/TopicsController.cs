@@ -26,7 +26,8 @@ namespace WebAPIForumApp.Controllers
                 {
                     Id = topic.Id,
                     Title = topic.Title,
-                    AuthorName = topic.User.Login
+                    AuthorName = topic.User.Login,
+                    RepliesCount = topic.RepliesCount
                 }).ToListAsync();
 
             return Ok(topics);
@@ -51,6 +52,7 @@ namespace WebAPIForumApp.Controllers
                 Description = topic.Description,
                 CreatedAt = topic.CreatedAt,
                 AuthorName = topic.User.Login,
+                RepliesCount = topic.RepliesCount,
                 Posts = topic.Posts.Select(p => new PostDTO
                 {
                     Id = p.Id,
@@ -89,7 +91,9 @@ namespace WebAPIForumApp.Controllers
                 Title = dto.Title,
                 Description = dto.Description,
                 CreatedAt = DateTime.Now,
-                UserId = dto.UserId
+                UserId = dto.UserId,
+                RepliesCount = 0
+
             };
 
             _context.Topics.Add(topic);
@@ -104,6 +108,7 @@ namespace WebAPIForumApp.Controllers
                 AuthorName = topic.User.Login,
                 Description = topic.Description,
                 CreatedAt = topic.CreatedAt,
+                RepliesCount = topic.RepliesCount,
                 Posts = []
             };
 

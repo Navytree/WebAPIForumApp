@@ -52,7 +52,7 @@ namespace WebAPIForumApp.Data
                         },
                         new Topic
                         {
-                            Title = "Lorem Ipsum",
+                            Title = "Lorem Ipsum Ipsum",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                             "Etiam dictum mauris ac fringilla iaculis. Vivamus dapibus ipsum eu iaculis tincidunt. " +
                             "Nullam volutpat nisi ut mollis blandit. Maecenas feugiat eget augue nec dictum. " +
@@ -73,14 +73,16 @@ namespace WebAPIForumApp.Data
                             "Nullam volutpat nisi ut mollis blandit. Maecenas feugiat eget augue nec dictum. " +
                             "Ut ac arcu eu purus tincidunt pellentesque sit amet vel mi. Vivamus quis mauris diam. ",
                             CreatedAt = DateTime.Now,
-                            UserId = testUser1.Id
+                            UserId = testUser1.Id,
+                            RepliesCount = 5
                         },
                         new Topic
                         {
                             Title = "Hello world",
                             Description = "Nice song by Louie Zong! I also like his Ghost Choir series, how about you guys?",
                             CreatedAt = DateTime.Now,
-                            UserId = testUser2.Id
+                            UserId = testUser2.Id,
+                            RepliesCount = 3
                         });
                     await context.SaveChangesAsync();
                 }

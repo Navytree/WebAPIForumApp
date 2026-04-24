@@ -10,6 +10,7 @@ namespace WebAPIForumApp.DTOs
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
         public string AuthorName { get; set; }
+        public int RepliesCount { get; set; }
         public List<PostDTO> Posts { get; set; } = new List<PostDTO>();
     }
 

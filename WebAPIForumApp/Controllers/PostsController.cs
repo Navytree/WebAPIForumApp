@@ -105,8 +105,12 @@ namespace WebAPIForumApp.Controllers
             var post = await _context.Posts.FindAsync(id);
             if (post == null) { return NotFound(); }
             if (post.UserId != dto.UserId) return Forbid();
-
+            var topic = await _context.Topics.FindAsync(post.TopicId);
             _context.Posts.Remove(post);
+            if (topic != null && topic.RepliesCount > 0)
+            {
+                topic.RepliesCount--;
+            }
             await _context.SaveChangesAsync();
 
             return NoContent();
