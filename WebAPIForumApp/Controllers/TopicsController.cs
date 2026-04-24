@@ -72,7 +72,7 @@ namespace WebAPIForumApp.Controllers
         {
             var originalTopic = await _context.Topics.FindAsync(id);
             if (originalTopic == null) return NotFound();
-            if (originalTopic.UserId != dto.UserId) return Forbid();
+            if (originalTopic.UserId != dto.UserId) return StatusCode(403, "You are not the owner of this topic.");
 
             originalTopic.Title = dto.Title;
             originalTopic.Description = dto.Description;
@@ -122,7 +122,7 @@ namespace WebAPIForumApp.Controllers
         {
             var topic = await _context.Topics.FindAsync(id);
             if (topic == null) return NotFound();
-            if (topic.UserId != dto.UserId) return Forbid();
+            if (topic.UserId != dto.UserId) return StatusCode(403, "You are not the owner of this topic.");
 
             _context.Topics.Remove(topic);
             await _context.SaveChangesAsync();
